@@ -9,25 +9,26 @@
   </button>
 </template>
 
-<script setup>
-defineProps({
-  variant: {
-    type: String,
-    default: 'primary',
-    validator: (value) => ['primary', 'secondary', 'danger'].includes(value),
-  },
-  size: {
-    type: String,
-    default: 'medium',
-    validator: (value) => ['small', 'medium', 'large'].includes(value),
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-})
+<script setup lang="ts">
+type Variant = 'primary' | 'secondary' | 'danger'
+type Size = 'small' | 'medium' | 'large'
 
-defineEmits(['click'])
+withDefaults(
+  defineProps<{
+    variant?: Variant
+    size?: Size
+    disabled?: boolean
+  }>(),
+  {
+    variant: 'primary',
+    size: 'medium',
+    disabled: false,
+  }
+)
+
+defineEmits<{
+  click: [event: MouseEvent]
+}>()
 </script>
 
 <style scoped>

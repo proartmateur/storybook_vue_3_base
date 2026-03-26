@@ -1,6 +1,14 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
 import BaseButton from './BaseButton.vue'
 
-export default {
+type BaseButtonArgs = {
+  variant?: 'primary' | 'secondary' | 'danger'
+  size?: 'small' | 'medium' | 'large'
+  disabled?: boolean
+  default?: string
+}
+
+const meta: Meta<BaseButtonArgs> = {
   title: 'Components/BaseButton',
   component: BaseButton,
   tags: ['autodocs'],
@@ -28,38 +36,29 @@ export default {
   }),
 }
 
-export const Primary = {
-  args: {
-    variant: 'primary',
-  },
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+  args: { variant: 'primary' },
 }
 
-export const Secondary = {
-  args: {
-    variant: 'secondary',
-  },
+export const Secondary: Story = {
+  args: { variant: 'secondary' },
 }
 
-export const Danger = {
-  args: {
-    variant: 'danger',
-  },
+export const Danger: Story = {
+  args: { variant: 'danger' },
 }
 
-export const Small = {
-  args: {
-    size: 'small',
-  },
+export const Small: Story = {
+  args: { size: 'small' },
 }
 
-export const Large = {
-  args: {
-    size: 'large',
-  },
+export const Large: Story = {
+  args: { size: 'large' },
 }
 
-export const Disabled = {
-  args: {
-    disabled: true,
-  },
+export const Disabled: Story = {
+  args: { disabled: true },
 }
