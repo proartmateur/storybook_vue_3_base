@@ -1,20 +1,22 @@
-import { expect, userEvent, within } from 'storybook/test';
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { expect, userEvent, within } from 'storybook/test'
 
-import MyPage from './Page.vue';
+import MyPage from './Page.vue'
 
-export default {
+const meta: Meta<typeof MyPage> = {
   title: 'Example/Page',
   component: MyPage,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen',
   },
-};
+}
 
-export const LoggedOut = {};
+export default meta
+type Story = StoryObj<typeof meta>
 
-// More on component testing: https://storybook.js.org/docs/writing-tests/interaction-testing
-export const LoggedIn = {
+export const LoggedOut: Story = {}
+
+export const LoggedIn: Story = {
   render: () => ({
     components: {
       MyPage,

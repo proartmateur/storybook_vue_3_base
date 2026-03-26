@@ -1,5 +1,6 @@
-/** @type { import('@storybook/vue3-vite').Preview } */
-const preview = {
+import type { Preview } from '@storybook/vue3'
+
+const preview: Preview = {
   parameters: {
     controls: {
       matchers: {

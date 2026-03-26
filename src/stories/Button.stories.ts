@@ -1,9 +1,9 @@
-import { fn } from 'storybook/test';
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { fn } from 'storybook/test'
 
-import MyButton from './Button.vue';
+import MyButton from './Button.vue'
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-export default {
+const meta: Meta<typeof MyButton> = {
   title: 'Example/Button',
   component: MyButton,
   tags: ['autodocs'],
@@ -11,34 +11,35 @@ export default {
     size: { control: { type: 'select' }, options: ['small', 'medium', 'large'] },
     backgroundColor: { control: 'color' },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
   args: { onClick: fn() },
-};
+}
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
   args: {
     primary: true,
     label: 'Button',
   },
-};
+}
 
-export const Secondary = {
+export const Secondary: Story = {
   args: {
     label: 'Button',
   },
-};
+}
 
-export const Large = {
+export const Large: Story = {
   args: {
     size: 'large',
     label: 'Button',
   },
-};
+}
 
-export const Small = {
+export const Small: Story = {
   args: {
     size: 'small',
     label: 'Button',
   },
-};
+}

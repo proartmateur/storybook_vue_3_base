@@ -2,8 +2,8 @@
   <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
 </template>
 
-<script>
-import { computed, reactive } from 'vue';
+<script lang="ts">
+import { computed, reactive } from 'vue'
 
 import './button.css';
 
@@ -21,8 +21,8 @@ export default {
     },
     size: {
       type: String,
-      validator: function (value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1;
+      validator: function (value: unknown) {
+        return ['small', 'medium', 'large'].indexOf(value as string) !== -1;
       },
     },
     backgroundColor: {

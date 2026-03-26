@@ -1,11 +1,11 @@
-import { fn } from 'storybook/test';
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { fn } from 'storybook/test'
 
-import MyHeader from './Header.vue';
+import MyHeader from './Header.vue'
 
-export default {
+const meta: Meta<typeof MyHeader> = {
   title: 'Example/Header',
   component: MyHeader,
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   render: (args) => ({
     // Components used in your story `template` are defined in the `components` object
@@ -23,7 +23,6 @@ export default {
     template: '<my-header :user="user" />',
   }),
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen',
   },
   args: {
@@ -31,18 +30,21 @@ export default {
     onLogout: fn(),
     onCreateAccount: fn(),
   },
-};
+}
 
-export const LoggedIn = {
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const LoggedIn: Story = {
   args: {
     user: {
       name: 'Jane Doe',
     },
   },
-};
+}
 
-export const LoggedOut = {
+export const LoggedOut: Story = {
   args: {
-    user: null,
+    user: null as unknown as undefined,
   },
-};
+}

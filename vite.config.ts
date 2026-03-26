@@ -19,7 +19,7 @@ export default defineConfig({
           name: 'unit',
           environment: 'jsdom',
           include: ['src/**/*.test.{js,ts}'],
-          setupFiles: ['./src/test/setup.js'],
+          setupFiles: ['./src/test/setup.ts'],
         },
       },
       // Storybook interaction tests

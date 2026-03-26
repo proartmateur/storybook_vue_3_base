@@ -1,20 +1,24 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
 import BaseCard from './BaseCard.vue'
 import BaseButton from './BaseButton.vue'
 
-export default {
+const meta: Meta<typeof BaseCard> = {
   title: 'Components/BaseCard',
   component: BaseCard,
   tags: ['autodocs'],
 }
 
-export const Default = {
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
   render: () => ({
     components: { BaseCard },
     template: '<BaseCard>Card content goes here.</BaseCard>',
   }),
 }
 
-export const WithHeader = {
+export const WithHeader: Story = {
   render: () => ({
     components: { BaseCard },
     template: `
@@ -26,7 +30,7 @@ export const WithHeader = {
   }),
 }
 
-export const WithHeaderAndFooter = {
+export const WithHeaderAndFooter: Story = {
   render: () => ({
     components: { BaseCard, BaseButton },
     template: `
@@ -40,3 +44,4 @@ export const WithHeaderAndFooter = {
     `,
   }),
 }
+

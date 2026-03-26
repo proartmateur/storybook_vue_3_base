@@ -53,8 +53,8 @@
   </article>
 </template>
 
-<script>
-import MyHeader from './Header.vue';
+<script lang="ts">
+import MyHeader from './Header.vue'
 import './page.css';
 
 export default {
@@ -64,8 +64,8 @@ export default {
 
   data() {
     return {
-      user: null,
-    };
+      user: null as { name: string } | null,
+    }
   },
 
   methods: {

@@ -39,8 +39,9 @@
   </header>
 </template>
 
-<script>
-import MyButton from './Button.vue';
+<script lang="ts">
+import { PropType } from 'vue'
+import MyButton from './Button.vue'
 import './header.css';
 
 export default {
@@ -50,7 +51,7 @@ export default {
 
   props: {
     user: {
-      type: Object,
+      type: Object as PropType<{ name: string } | null>,
     },
   },
 
