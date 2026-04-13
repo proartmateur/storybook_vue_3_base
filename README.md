@@ -58,3 +58,10 @@ src/
 - **Stories**: `ComponentName.stories.js` junto al componente
 - **Tests**: `ComponentName.test.js` junto al componente
 - **Testing Library**: usar queries semánticas (`getByRole`, `getByText`) sobre selectores de DOM
+
+
+## Agregar componentes de shadcn-vue
+
+```bash
+npx shadcn-vue@latest add <nombre-componente>
+```
